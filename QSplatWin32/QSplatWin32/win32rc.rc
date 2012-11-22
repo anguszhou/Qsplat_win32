@@ -1,0 +1,228 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// 非特定语言(默认值) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_NEUD)
+#ifdef _WIN32
+LANGUAGE LANG_NEUTRAL, SUBLANG_DEFAULT
+#pragma code_page(936)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+QSPLAT_FRAMERATE_CONTROL DIALOG  0, 0, 213, 57
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION
+CAPTION "Set Target Framerate"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,155,20,50,14
+    CTEXT           "Target frame rate:",IDC_STATIC,21,8,115,8,SS_CENTERIMAGE
+    LTEXT           "20",IDC_STATIC,132,23,9,8
+    LTEXT           "1",IDC_STATIC,20,23,8,8
+    CTEXT           "8.0",FRAMERATE_TEXT,40,35,77,9,SS_CENTERIMAGE
+    CONTROL         "Slider3",FRAMERATE_SLIDER,"msctls_trackbar32",TBS_NOTICKS | WS_TABSTOP,29,21,97,13
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    QSPLAT_FRAMERATE_CONTROL, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 205
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 48
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+#endif    // 非特定语言(默认值) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// 英语(美国) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+QSPLAT_ABOUT_DIALOG DIALOG  0, 0, 213, 151
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "About QSplat"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "Close",IDOK,82,130,50,14
+    CTEXT           "QSplat,  version 1.0\nby\nSzymon Rusinkewicz\nGary King\n\nCopyright (c) 1999-2000 The Board of Trustees of the\nLeland Stanford Junior University. All Rights Reserved.",IDC_STATIC,7,7,199,60
+    CTEXT           "Left Button = Rotate.     Right = Pan.\nLeft+Right = Zoom.    Ctrl + Right = Relight.\n\nType ""QSplatWin32 -help"" at the command line\nfor command line options",IDC_STATIC,7,74,199,43
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    QSPLAT_ABOUT_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 206
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 144
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_MENU1 MENU 
+BEGIN
+    POPUP "&File"
+    BEGIN
+        MENUITEM "&Build",                      QSPLAT_BUILD
+        MENUITEM "&Open",                       QSPLAT_OPEN
+        MENUITEM "E&xit",                       QSPLAT_EXIT
+    END
+    POPUP "&Options"
+    BEGIN
+        MENUITEM "&Shiny",                      QSPLAT_OPTIONS_SHINY, CHECKED
+        MENUITEM "&Backface Cull",              QSPLAT_OPTIONS_BACKFACECULL, CHECKED
+        MENUITEM "Show &Light",                 QSPLAT_OPTIONS_SHOWLIGHT
+        MENUITEM "Show &Refinement",            QSPLAT_OPTIONS_SHOWPROGRESS, CHECKED
+        MENUITEM "&Auto-spin",                  QSPLAT_OPTIONS_AUTOSPIN, CHECKED
+    END
+    POPUP "&Driver"
+    BEGIN
+        POPUP "&OpenGL"
+        BEGIN
+            MENUITEM "&Points",                     QSPLAT_DRIVERS_OPENGL_POINTS
+            MENUITEM "&Round Points",               QSPLAT_DRIVERS_OPENGL_CIRCLES
+            MENUITEM "&Quads",                      QSPLAT_DRIVERS_OPENGL_QUADS
+            MENUITEM "Poly &Circles",               QSPLAT_DRIVERS_OPENGL_POLY_CIRC
+            MENUITEM "Poly &Ellipses",              QSPLAT_DRIVERS_OPENGL_POLY_ELLIPSES
+        END
+        POPUP "&Software"
+        BEGIN
+            MENUITEM "Z-Buffer + GL Blit",          QSPLAT_DRIVERS_SOFTWARE_GLDRAWPIXELS
+            MENUITEM "&Z-Buffer",                   QSPLAT_DRIVERS_SOFTWARE
+            MENUITEM "Tiles + GL Blit",             QSPLAT_DRIVERS_SOFTWARE_TILES_GLDRAWPIXELS
+            MENUITEM "&Tiles",                      QSPLAT_DRIVERS_SOFTWARE_TILES
+            MENUITEM "Optimal + GL Blit",           QSPLAT_DRIVERS_SOFTWARE_BEST_GLDRAWPIXELS
+            MENUITEM "&Optimal",                    QSPLAT_DRIVERS_SOFTWARE_BEST
+        END
+        POPUP "&Visualizations"
+        BEGIN
+            MENUITEM "Small &Ellipses",             QSPLAT_DRIVERS_OPENGL_POLY_ELLIPSE_SMALL
+            MENUITEM "&Spheres",                    QSPLAT_DRIVERS_OPENGL_SPHERES
+        END
+    END
+    POPUP "&Commands"
+    BEGIN
+        MENUITEM "Go &Fullscreen",              QSPLAT_COMMANDS_FULLSCREEN
+        MENUITEM "&Reset Viewer",               QSPLAT_COMMANDS_RESET
+        MENUITEM "&Set Framerate",              QSPLAT_SET_FRAMERATE
+    END
+    POPUP "&Help"
+    BEGIN
+        MENUITEM "&About QSplat",               QSPLAT_ABOUT
+        MENUITEM "About this &model",           QSPLAT_ABOUT_MODEL
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+QSPLAT_ICON             ICON                    "icon1.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE 
+BEGIN
+    IDS_FILTERSTRING        "QSplat Files|*.qs|"
+END
+
+#endif    // 英语(美国) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

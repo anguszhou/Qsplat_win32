@@ -41,6 +41,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
+				AdditionalIncludeDirectories="C:\ann_1.1.2_MS_Win32_bin"
 				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS;__WIN_32;__GL_DRAW_VERTEXARRAY"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
@@ -62,6 +63,7 @@
 				Name="VCLinkerTool"
 				AdditionalDependencies="opengl32.lib glu32.lib odbc32.lib odbccp32.lib comctl32.lib"
 				LinkIncremental="1"
+				AdditionalLibraryDirectories="C:\ann_1.1.2_MS_Win32_bin"
 				GenerateDebugInformation="true"
 				SubSystem="2"
 				TargetMachine="1"
@@ -216,6 +218,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\qsplat_make_main.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\qsplat_make_qtree_v11.cpp"
 				>
 			</File>
@@ -266,6 +272,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\qsplat_make_main.h"
+				>
+			</File>
+			<File
 				RelativePath=".\qsplat_make_qtree_v11.h"
 				>
 			</File>
@@ -291,6 +301,14 @@
 			</File>
 			<File
 				RelativePath=".\resource.h"
+				>
+			</File>
+			<File
+				RelativePath=".\stdafx.h"
+				>
+			</File>
+			<File
+				RelativePath=".\targetver.h"
 				>
 			</File>
 			<File

@@ -100,26 +100,26 @@ QTree_Node *QTree::BuildLeaves(int begin, int end)
 	if (middle - begin <= 4) {
 		if (end - middle <= 4) {
 			return CombineNodes(CombineLeaves(begin, middle),
-					    CombineLeaves(middle, end));
+				CombineLeaves(middle, end));
 		} else {
 			int m2 = Partition(middle, end);
 			return CombineNodes(CombineLeaves(begin, middle),
-					    BuildLeaves(middle, m2),
-					    BuildLeaves(m2, end));
+				BuildLeaves(middle, m2),
+				BuildLeaves(m2, end));
 		}
 	} else {
 		if (end - middle <= 4) {
 			int m1 = Partition(begin, middle);
 			return CombineNodes(BuildLeaves(begin, m1),
-					    BuildLeaves(m1, middle),
-					    CombineLeaves(middle, end));
+				BuildLeaves(m1, middle),
+				CombineLeaves(middle, end));
 		} else {
 			int m1 = Partition(begin, middle);
 			int m2 = Partition(middle, end);
 			return CombineNodes(BuildLeaves(begin, m1),
-					    BuildLeaves(m1, middle),
-					    BuildLeaves(middle, m2),
-					    BuildLeaves(m2, end));
+				BuildLeaves(m1, middle),
+				BuildLeaves(middle, m2),
+				BuildLeaves(m2, end));
 		}
 	}
 }
@@ -136,7 +136,7 @@ QTree_Node *QTree::CombineNodes(QTree_Node *n1, QTree_Node *n2)
 	n->pos[2] = (n1->pos[2] + n2->pos[2])/2.0f;
 
 	n->r = max(Dist(n->pos, n1->pos) + n1->r,
-		   Dist(n->pos, n2->pos) + n2->r);
+		Dist(n->pos, n2->pos) + n2->r);
 
 	n->norm[0] = n1->norm[0] + n2->norm[0];
 	n->norm[1] = n1->norm[1] + n2->norm[1];
@@ -144,7 +144,7 @@ QTree_Node *QTree::CombineNodes(QTree_Node *n1, QTree_Node *n2)
 	Normalize(n->norm);
 
 	n->normcone = max(ANGLE(n->norm, n1->norm) + n1->normcone,
-			  ANGLE(n->norm, n2->norm) + n2->normcone);
+		ANGLE(n->norm, n2->norm) + n2->normcone);
 
 	if (havecolor) {
 		n->col[0] = (n1->col[0] + n2->col[0]) / 2;
@@ -168,8 +168,8 @@ QTree_Node *QTree::CombineNodes(QTree_Node *n1, QTree_Node *n2, QTree_Node *n3)
 	n->pos[2] = (n1->pos[2] + n2->pos[2] + n3->pos[2])/3.0f;
 
 	n->r = max(max(Dist(n->pos, n1->pos) + n1->r,
-		       Dist(n->pos, n2->pos) + n2->r),
-		       Dist(n->pos, n3->pos) + n3->r);
+		Dist(n->pos, n2->pos) + n2->r),
+		Dist(n->pos, n3->pos) + n3->r);
 
 	n->norm[0] = n1->norm[0] + n2->norm[0] + n3->norm[0];
 	n->norm[1] = n1->norm[1] + n2->norm[1] + n3->norm[1];
@@ -177,8 +177,8 @@ QTree_Node *QTree::CombineNodes(QTree_Node *n1, QTree_Node *n2, QTree_Node *n3)
 	Normalize(n->norm);
 
 	n->normcone = max(max(ANGLE(n->norm, n1->norm) + n1->normcone,
-			      ANGLE(n->norm, n2->norm) + n2->normcone),
-			      ANGLE(n->norm, n3->norm) + n3->normcone);
+		ANGLE(n->norm, n2->norm) + n2->normcone),
+		ANGLE(n->norm, n3->norm) + n3->normcone);
 
 	if (havecolor) {
 		n->col[0] = (n1->col[0] + n2->col[0] + n3->col[0]) / 3;
@@ -195,7 +195,7 @@ QTree_Node *QTree::CombineNodes(QTree_Node *n1, QTree_Node *n2, QTree_Node *n3)
 }
 
 QTree_Node *QTree::CombineNodes(QTree_Node *n1, QTree_Node *n2,
-				QTree_Node *n3, QTree_Node *n4)
+								QTree_Node *n3, QTree_Node *n4)
 {
 	QTree_Node *n = new QTree_Node;
 
@@ -204,9 +204,9 @@ QTree_Node *QTree::CombineNodes(QTree_Node *n1, QTree_Node *n2,
 	n->pos[2] = (n1->pos[2] + n2->pos[2] + n3->pos[2] + n4->pos[2])/4.0f;
 
 	n->r = max(max(Dist(n->pos, n1->pos) + n1->r,
-		       Dist(n->pos, n2->pos) + n2->r),
-		   max(Dist(n->pos, n3->pos) + n3->r,
-		       Dist(n->pos, n4->pos) + n4->r));
+		Dist(n->pos, n2->pos) + n2->r),
+		max(Dist(n->pos, n3->pos) + n3->r,
+		Dist(n->pos, n4->pos) + n4->r));
 
 	n->norm[0] = n1->norm[0] + n2->norm[0] + n3->norm[0] + n4->norm[0];
 	n->norm[1] = n1->norm[1] + n2->norm[1] + n3->norm[1] + n4->norm[1];
@@ -214,9 +214,9 @@ QTree_Node *QTree::CombineNodes(QTree_Node *n1, QTree_Node *n2,
 	Normalize(n->norm);
 
 	n->normcone = max(max(ANGLE(n->norm, n1->norm) + n1->normcone,
-			      ANGLE(n->norm, n2->norm) + n2->normcone),
-			  max(ANGLE(n->norm, n3->norm) + n3->normcone,
-			      ANGLE(n->norm, n4->norm) + n4->normcone));
+		ANGLE(n->norm, n2->norm) + n2->normcone),
+		max(ANGLE(n->norm, n3->norm) + n3->normcone,
+		ANGLE(n->norm, n4->norm) + n4->normcone));
 
 	if (havecolor) {
 		n->col[0] = (n1->col[0] + n2->col[0] + n3->col[0] + n4->col[0]) / 4;
@@ -243,10 +243,10 @@ QTree_Node *QTree::CombineLeaves(int begin, int end)
 			return CombineNodes(leafptr[begin], leafptr[begin+1]);
 		case 3:
 			return CombineNodes(leafptr[begin], leafptr[begin+1],
-					    leafptr[begin+2]);
+				leafptr[begin+2]);
 		case 4:
 			return CombineNodes(leafptr[begin], leafptr[begin+1],
-					    leafptr[begin+2], leafptr[begin+3]);
+				leafptr[begin+2], leafptr[begin+3]);
 	}
 
 #ifdef DEBUG
@@ -391,12 +391,12 @@ void QTree::Write(const char *qsfile, const std::string &comments)
 
 	// Write out file length
 	int file_len = 8			// Magic number
-		     + 4			// File length
-		     + 4			// Number of leaf nodes
-		     + 4			// Options 'n parameters
-		     + 4*3 + 4			// Center and R of top level
-		     + 4			// # of children @ top level
-		     + Treesize();		// The tree itself
+		+ 4			// File length
+		+ 4			// Number of leaf nodes
+		+ 4			// Options 'n parameters
+		+ 4*3 + 4			// Center and R of top level
+		+ 4			// # of children @ top level
+		+ Treesize();		// The tree itself
 	int padding = (4 - (file_len % 4)) % 4;
 	if (padding == 4)
 		padding = 0;
@@ -511,7 +511,7 @@ int QTree::Nodesize(QTree_Node *n)
 		return 0;
 	else
 		return ((havecolor ? 6 : 4) * Num_Children(n)) +
-		       (Has_Grandchildren(n) ? 4 : 0);
+		(Has_Grandchildren(n) ? 4 : 0);
 }
 
 // Return size in bytes of the tree on disk

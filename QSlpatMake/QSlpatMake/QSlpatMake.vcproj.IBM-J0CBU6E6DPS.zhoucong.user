@@ -11,7 +11,7 @@
 			<DebugSettings
 				Command="$(TargetPath)"
 				WorkingDirectory=""
-				CommandArguments="point  C:\ply\yinshui.ply  C:\ply\yinshui.qs"
+				CommandArguments="point  C:\ply\yinshui2.ply  C:\ply\yinshui2.qs"
 				Attach="false"
 				DebuggerType="3"
 				Remote="1"

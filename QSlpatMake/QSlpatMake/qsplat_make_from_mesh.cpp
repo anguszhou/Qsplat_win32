@@ -112,6 +112,9 @@ bool read_ply(const char *plyfile,
 		fprintf(stderr, "Can't open plyfile %s\n", plyfile);
 		return false;
 	}
+	int fn = 0 , sz = 0;
+	fn = _fileno(f);
+	sz = _filelength(fn);
 	printf("Reading %s...\n", plyfile);
 
 
@@ -338,12 +341,29 @@ bool read_ply(const char *plyfile,
 	fgets(buf, 2, f);
 	//int feof(FILE*stream):test the end of file indicator for the stream
 	//if it is set return 1 else return 0
-	if (!feof(f)) {
-		fprintf(stderr, "Warning: ignored excess garbage at end of ply file.\n");
-	}
+	//if (!feof(f)) {
+	//	fprintf(stderr, "Warning: ignored excess garbage at end of ply file.\n");
+	//}
 	//int fclose(FILE*stream):free file pointer and buffer.
 	//if close successfully return 0 ,else return EOF(-1)
 	fclose(f);
+
+	for(int i = 0 ; i < numleaves ; i++)
+	{
+		float p1,p2,p3,r,n1,n2,n3,c1,c2,c3;
+		p1 = leaves[i].pos[0];
+		p2 = leaves[i].pos[1];
+		p3 = leaves[i].pos[2];
+		r = leaves[i].r;
+		n1 = leaves[i].norm[0];
+		n2 = leaves[i].norm[1];
+		n3 = leaves[i].norm[2];
+		c1 = leaves[i].col[0];
+		c2 = leaves[i].col[1];
+		c3 = leaves[i].col[2];
+		printf(" ");
+	}
+
 	return true;
 
 plyreaderror:

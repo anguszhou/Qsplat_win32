@@ -31,6 +31,7 @@ Leland Stanford Junior University.  All Rights Reserved.
 #include <zmouse.h>
 #include <Windows.h>
 #include <GL/gl.h>
+#include "qsplat_make_main.h"
 
 
 char QSplatWin32GUI::szTitle[] = APPTITLE;
@@ -38,6 +39,7 @@ char QSplatWin32GUI::szAppName[] = "QSplat";
 char QSplatWin32GUI::szWindowBuff[256] = APPTITLE;
 int QSplatWin32GUI::statusWidths[2] = { 400, 623 };
 char QSplatWin32GUI::lastFileName[256];
+char QSplatWin32GUI::buildFileName[256];
 
 // Parse command-line options (if any) and create the QSplat window
 QSplatWin32GUI::QSplatWin32GUI(HINSTANCE hInstance, HINSTANCE hPrevInstance,
@@ -169,7 +171,9 @@ QSplatWin32GUI::QSplatWin32GUI(HINSTANCE hInstance, HINSTANCE hPrevInstance,
   else
   {
     GetCurrentDirectory(sizeof(lastFileName),lastFileName);
+	GetCurrentDirectory(sizeof(buildFileName),buildFileName);
     strcat(lastFileName,"\\*.qs");
+	strcat(buildFileName,"\\*.ply");
   }
   if (framerate == 0.0f)
     framerate = ((int)whichDriver >= (int)SOFTWARE_GLDRAWPIXELS) ? 4.0f : 8.0f;
@@ -402,6 +406,55 @@ LONG WINAPI QSplatWin32GUI::WndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM l
       PostQuitMessage(WM_DESTROY);
       return 0;
     }
+	
+	case QSPLAT_BUILD:
+	{
+		OPENFILENAME ofn;
+      
+      static char szFilter[260];
+      FormatFilterString(IDS_POINTFILTER, szFilter);
+      
+      ofn.lStructSize = sizeof(OPENFILENAME);
+      ofn.hwndOwner = hWnd;
+      ofn.hInstance = NULL;
+      ofn.lpstrFilter = szFilter;
+      ofn.lpstrCustomFilter = NULL;
+      ofn.nMaxCustFilter = 0;
+      ofn.nFilterIndex = 0;
+      ofn.lpstrFile = buildFileName;
+      ofn.nMaxFile = 260;
+      ofn.lpstrFileTitle = NULL;
+      ofn.nMaxFileTitle = 0;
+      ofn.lpstrInitialDir = NULL;
+      ofn.lpstrTitle = "Build QS from PLY..";
+      ofn.Flags = OFN_FILEMUSTEXIST | OFN_PATHMUSTEXIST | OFN_HIDEREADONLY;
+      ofn.nFileOffset = 0;
+      ofn.nFileExtension = 0;
+      ofn.lpstrDefExt = NULL;
+      ofn.lCustData = 0;
+      ofn.lpfnHook = NULL;
+      ofn.lpTemplateName = NULL;
+      
+      if (!GetOpenFileName(&ofn)) return 0;
+	  
+	  char* param = "point";
+	  int result = build_ply_to_qs(param,buildFileName);
+	  if(result)
+	  {
+		  char buf[256];
+		  sprintf(buf, "Build Qsplat file successful.");
+		  MessageBox(NULL, buf, NULL, MB_OK);
+	  }
+	  else
+	  {
+		  char buf[256];
+		  sprintf(buf, "Build Qsplat file failed.");
+		  MessageBox(NULL, buf, NULL, MB_OK);
+	  }	
+
+
+	  return 0;
+	}
 
     case QSPLAT_OPEN:
     {

@@ -132,7 +132,6 @@ QSplat_Model *QSplat_Model::Open(const char *modelfilename)
 		delete q;
 		return NULL;
 	}
-
 	return q;
 }
 

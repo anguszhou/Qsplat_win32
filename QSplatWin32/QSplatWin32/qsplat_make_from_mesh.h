@@ -12,19 +12,22 @@ Leland Stanford Junior University.  All Rights Reserved.
 */
 
 #include "qsplat_make_qtree_v11.h"
+#include <ANN/ANN.h>
 
 //extern : variables or functions' declaration or definition exists in other place.
 extern bool read_ply(const char *plyfile,
-		     int &numleaves, QTree_Node * &leaves,
-		     int &numfaces, face * &faces,
-		     bool &havecolor,
-		     std::string &comments);
+					 int &numleaves, QTree_Node * &leaves,
+					 int &numfaces, face * &faces,
+					 bool &havecolor,
+					 std::string &comments);
 extern void find_normals(int numleaves, QTree_Node *leaves,
-		         int numfaces, const face *faces);
+						 int numfaces, const face *faces);
 extern void merge_nodes(int &numleaves, QTree_Node *leaves,
-			int &numfaces, face *faces,
-			bool havecolor, float thresh);
+						int &numfaces, face *faces,
+						bool havecolor, float thresh);
 extern void find_splat_sizes(int numleaves, QTree_Node *leaves,
-		             int numfaces, const face *faces);
+							 int numfaces, const face *faces);
+extern void compute_splat_sizes(int numleaves, QTree_Node *leaves);
+extern void swap_point(int nPts, ANNkd_tree *kdTree, int numleaves, QTree_Node *leaves, bool side);
 
 #endif

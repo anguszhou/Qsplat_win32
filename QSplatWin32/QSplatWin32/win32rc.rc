@@ -209,6 +209,7 @@ QSPLAT_ICON             ICON                    "icon1.ico"
 STRINGTABLE 
 BEGIN
     IDS_FILTERSTRING        "QSplat Files|*.qs|"
+    IDS_POINTFILTER         "Point Model Files|*.ply|"
 END
 
 #endif    // Ó¢Óï(ÃÀ¹ú) resources

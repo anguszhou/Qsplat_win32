@@ -29,7 +29,7 @@ struct QTree_Node {
 			int remap;
 			short col_tmp[3];
 		} m;	// What @$@#! on the C++ committee
-			// put in anon unions but not structs?
+		// put in anon unions but not structs?
 	};
 	color col; //col is an instance of unsigned char[3]
 
@@ -60,12 +60,12 @@ private:
 
 public:
 	QTree(int _numleaves, QTree_Node *_leaves, bool _havecolor) :
-		numleaves(_numleaves), leaves(_leaves), havecolor(_havecolor)
-	{
-		InitLeaves();
-	}
-	void BuildTree();
-	void Write(const char *qsfile, const std::string &comments);
+	  numleaves(_numleaves), leaves(_leaves), havecolor(_havecolor)
+	  {
+		  InitLeaves();
+	  }
+	  void BuildTree();
+	  void Write(const char *qsfile, const std::string &comments);
 };
 
 #endif

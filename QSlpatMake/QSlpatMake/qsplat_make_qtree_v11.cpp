@@ -9,6 +9,7 @@ Leland Stanford Junior University.  All Rights Reserved.
 */
 #include "stdafx.h"
 #include <stdio.h>
+#include <io.h>
 #include "qsplat_util.h"
 #include "qsplat_make_qtree_v11.h"
 #include "qsplat_spherequant.h"

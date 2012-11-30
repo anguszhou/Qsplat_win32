@@ -46,6 +46,7 @@ public:
 	static char szWindowBuff[256];
 	static int statusWidths[2];
 	static char lastFileName[256];
+	static char buildFileName[256];
 
 
 	virtual void Go();

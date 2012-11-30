@@ -37,6 +37,8 @@
 #define QSPLAT_DRIVERS_SOFTWARE_BEST_GLDRAWPIXELS 50011
 #define QSPLAT_DRIVERS_SOFTWARE_BEST    50012
 #define IDS_FILTERSTRING                57666
+#define IDS_STRING57667                 57667
+#define IDS_POINTFILTER                 57667
 
 // Next default values for new objects
 // 

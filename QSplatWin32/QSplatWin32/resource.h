@@ -37,14 +37,13 @@
 #define QSPLAT_DRIVERS_SOFTWARE_BEST_GLDRAWPIXELS 50011
 #define QSPLAT_DRIVERS_SOFTWARE_BEST    50012
 #define IDS_FILTERSTRING                57666
-#define IDS_STRING57667                 57667
 #define IDS_POINTFILTER                 57667
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        125
+#define _APS_NEXT_RESOURCE_VALUE        130
 #define _APS_NEXT_COMMAND_VALUE         40037
 #define _APS_NEXT_CONTROL_VALUE         1016
 #define _APS_NEXT_SYMED_VALUE           101

@@ -98,7 +98,7 @@ bool read_ply(const char *plyfile,
 			  std::string &comments)
 {
 	//initialize variables
-	bool isbig_endian = false , pointcloud = false;
+	bool isbig_endian = false , pointcloud = false ;
 	bool have_faces=false, have_tstrips=false;
 	int tstripdatalen=0, *tstripdata = NULL;
 	int other_prop_len, color_offset;
@@ -246,6 +246,17 @@ bool read_ply(const char *plyfile,
 		if (!LINE_IS("property list int int vertex_indices"))
 			goto plyreaderror;
 		GET_LINE();
+	}else
+	{
+		result = sscanf(buf, "element range_grid %d", &numfaces);
+		if(result == 1)
+		{
+			GET_LINE();
+			//only equal can go though
+			if (!LINE_IS("property list uchar int vertex_indices"))
+				goto plyreaderror;
+			GET_LINE();
+		}
 	}
 
 	if (!LINE_IS("end_header")) {
@@ -280,8 +291,11 @@ bool read_ply(const char *plyfile,
 			{
 				//leaves[i].pos[k] = *(float *)p[k];
 				leaves[i].pos[k] = atof(p[k]);
-				leaves[i].norm[k] = atof(p[k+3]);
-				leaves[i].col[k] = atoi(p[k+6]);
+				if(have_colors)
+				{
+					leaves[i].norm[k] = atof(p[k+3]);
+					leaves[i].col[k] = atoi(p[k+6]);
+				}				
 			}
 		}
 	}

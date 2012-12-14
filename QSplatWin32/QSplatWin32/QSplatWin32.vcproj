@@ -326,18 +326,6 @@
 			UniqueIdentifier="{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}"
 			>
 			<File
-				RelativePath=".\9.ico"
-				>
-			</File>
-			<File
-				RelativePath=".\icon1.ico"
-				>
-			</File>
-			<File
-				RelativePath=".\tapatalk.ico"
-				>
-			</File>
-			<File
 				RelativePath=".\win32rc.rc"
 				>
 			</File>

@@ -184,11 +184,6 @@ BEGIN
         MENUITEM "&Reset Viewer",               QSPLAT_COMMANDS_RESET
         MENUITEM "&Set Framerate",              QSPLAT_SET_FRAMERATE
     END
-    POPUP "&Help"
-    BEGIN
-        MENUITEM "&About QSplat",               QSPLAT_ABOUT
-        MENUITEM "About this &model",           QSPLAT_ABOUT_MODEL
-    END
 END
 
 
@@ -199,7 +194,7 @@ END
 
 // Icon with lowest ID value placed first to ensure application icon
 // remains consistent on all systems.
-QSPLAT_ICON             ICON                    "C:\\Zhcong\\MyGit\\Qsplat\\QSplatWin32\\QSplatWin32\\tapatalk.ico"
+QSPLAT_ICON             ICON                    "C:\\Zhcong\\MyGit\\Qsplat\\QSplatWin32\\QSplatWin32\\fly.ico"
 
 /////////////////////////////////////////////////////////////////////////////
 //

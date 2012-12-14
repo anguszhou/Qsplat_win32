@@ -390,15 +390,15 @@ LONG WINAPI QSplatWin32GUI::WndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM l
 
     case QSPLAT_ABOUT:
     {
-      DialogBox(GUI->ghInst, MAKEINTRESOURCE(QSPLAT_ABOUT_DIALOG),
-      		hWnd, (DLGPROC) AboutBox);
+      //DialogBox(GUI->ghInst, MAKEINTRESOURCE(QSPLAT_ABOUT_DIALOG),
+      //		hWnd, (DLGPROC) AboutBox);
       return 0;
     }
 
     case QSPLAT_ABOUT_MODEL:
     {
-	GUI->aboutmodel();
-	return 0;
+		//GUI->aboutmodel();
+		return 0;
     }
     
     case QSPLAT_EXIT:

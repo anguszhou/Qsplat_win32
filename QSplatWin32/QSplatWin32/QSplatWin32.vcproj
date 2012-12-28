@@ -41,7 +41,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="C:\ann_1.1.2_MS_Win32_bin"
+				AdditionalIncludeDirectories=""
 				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS;__WIN_32;__GL_DRAW_VERTEXARRAY"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
@@ -63,7 +63,7 @@
 				Name="VCLinkerTool"
 				AdditionalDependencies="opengl32.lib glu32.lib odbc32.lib odbccp32.lib comctl32.lib"
 				LinkIncremental="1"
-				AdditionalLibraryDirectories="C:\ann_1.1.2_MS_Win32_bin"
+				AdditionalLibraryDirectories=""
 				GenerateDebugInformation="true"
 				SubSystem="2"
 				TargetMachine="1"
@@ -325,6 +325,10 @@
 			Filter="rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav"
 			UniqueIdentifier="{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}"
 			>
+			<File
+				RelativePath=".\ann\ANN.lib"
+				>
+			</File>
 			<File
 				RelativePath=".\win32rc.rc"
 				>

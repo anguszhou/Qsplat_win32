@@ -12,7 +12,7 @@ Leland Stanford Junior University.  All Rights Reserved.
 */
 
 #include "qsplat_make_qtree_v11.h"
-#include <ANN/ANN.h>
+#include "ann/ANN/ANN.h"
 
 //extern : variables or functions' declaration or definition exists in other place.
 extern bool read_ply(const char *plyfile,

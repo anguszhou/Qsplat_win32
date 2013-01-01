@@ -194,7 +194,7 @@ END
 
 // Icon with lowest ID value placed first to ensure application icon
 // remains consistent on all systems.
-QSPLAT_ICON             ICON                    "C:\\Zhcong\\MyGit\\Qsplat\\QSplatWin32\\QSplatWin32\\fly.ico"
+QSPLAT_ICON             ICON                    "fly.ico"
 
 /////////////////////////////////////////////////////////////////////////////
 //
